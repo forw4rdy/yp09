@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Надежный мотор</title>
+  <meta name="description" content="Контакты автосервиса «Надежный мотор» в Оренбурге: адрес, телефон, режим работы и онлайн-запись на ремонт.">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="index.html" aria-label="Надежный мотор — на главную">
+        <span class="logo__name">Надежный мотор</span>
+        <span class="logo__sub">Автосервис · Оренбург</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li><a class="site-nav__link" href="catalog.html">Услуги</a></li>
+          <li><a class="site-nav__link" href="about.html">О нас</a></li>
+          <li><a class="site-nav__link" href="contacts.html" aria-current="page">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <a class="site-header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a> / <span>Контакты</span>
+        </nav>
+        <h1 class="page-head__title">Контакты</h1>
+        <p class="page-head__lead">
+          Приезжайте на диагностику или позвоните — подскажем по стоимости и срокам.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="contacts-title">
+      <div class="container">
+        <h2 class="section__title" id="contacts-title">Как нас найти</h2>
+
+        <div class="contacts">
+          <article class="contacts__card">
+            <h3 class="contacts__title">Адрес</h3>
+            <address class="contacts__text">
+              Оренбург, ул. Академика Сахарова, 55<br>
+              Боксы №1–4, въезд со двора
+            </address>
+          </article>
+
+          <article class="contacts__card">
+            <h3 class="contacts__title">Телефон и почта</h3>
+            <p class="contacts__text">
+              <a href="tel:+73532124590">+7 (3532) 12-45-90</a><br>
+              <a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a>
+            </p>
+          </article>
+
+          <article class="contacts__card">
+            <h3 class="contacts__title">Режим работы</h3>
+            <p class="contacts__text">
+              Пн–Сб: 9:00–20:00<br>
+              Вс: 10:00–18:00
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="map-title">
+      <div class="container">
+        <h2 class="section__title" id="map-title">На карте</h2>
+        <div class="map" role="img" aria-label="Схема проезда: Оренбург, улица Академика Сахарова, 55">
+          <p class="map__placeholder">Карта проезда будет добавлена на этапе стилизации.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="zapis" aria-labelledby="booking-title">
+      <div class="container">
+        <h2 class="section__title" id="booking-title">Запись на ремонт</h2>
+        <p class="section__lead">Оставьте заявку — перезвоним в течение 15 минут и подберём удобное время.</p>
+
+        <form class="form" id="booking-form" action="/api/bookings" method="post" novalidate>
+          <div class="form__row">
+            <div class="field">
+              <label class="field__label" for="bk-name">Ваше имя</label>
+              <input class="field__input" id="bk-name" name="name" type="text" autocomplete="name" placeholder="Иван" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="bk-phone">Телефон</label>
+              <input class="field__input" id="bk-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="bk-service">Услуга</label>
+            <select class="field__select" id="bk-service" name="service_id">
+              <option value="">Не знаю, нужна диагностика</option>
+              <option value="1">Компьютерная диагностика</option>
+              <option value="2">Замена масла и фильтров</option>
+              <option value="3">Ремонт подвески</option>
+              <option value="5">Замена ремня ГРМ</option>
+              <option value="6">Капитальный ремонт двигателя</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="bk-comment">Комментарий</label>
+            <textarea class="field__textarea" id="bk-comment" name="comment" rows="3" placeholder="Марка, год, что беспокоит"></textarea>
+          </div>
+
+          <p class="form__status" id="booking-status" role="status" aria-live="polite"></p>
+
+          <button class="button button--block" type="submit">Отправить заявку</button>
+          <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="message-title">
+      <div class="container">
+        <h2 class="section__title" id="message-title">Написать нам</h2>
+
+        <form class="form" id="contact-form" action="/api/messages" method="post" novalidate>
+          <div class="form__row">
+            <div class="field">
+              <label class="field__label" for="ct-name">Ваше имя</label>
+              <input class="field__input" id="ct-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="ct-phone">Телефон</label>
+              <input class="field__input" id="ct-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="ct-email">Email</label>
+            <input class="field__input" id="ct-email" name="email" type="email" autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="ct-message">Сообщение</label>
+            <textarea class="field__textarea" id="ct-message" name="message" rows="4" required></textarea>
+          </div>
+
+          <p class="form__status" id="contact-status" role="status" aria-live="polite"></p>
+
+          <button class="button button--block" type="submit">Отправить сообщение</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="otzyv" aria-labelledby="review-title">
+      <div class="container">
+        <h2 class="section__title" id="review-title">Оставить отзыв</h2>
+
+        <form class="form" id="review-form" action="/api/reviews" method="post" novalidate>
+          <div class="form__row">
+            <div class="field">
+              <label class="field__label" for="rv-author">Имя</label>
+              <input class="field__input" id="rv-author" name="author" type="text" required>
+            </div>
+            <div class="field">
+              <label class="field__label" for="rv-car">Автомобиль</label>
+              <input class="field__input" id="rv-car" name="car" type="text" placeholder="Марка, год">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="rv-rating">Оценка</label>
+            <select class="field__select" id="rv-rating" name="rating">
+              <option value="5">5 — отлично</option>
+              <option value="4">4 — хорошо</option>
+              <option value="3">3 — нормально</option>
+              <option value="2">2 — плохо</option>
+              <option value="1">1 — очень плохо</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="rv-text">Отзыв</label>
+            <textarea class="field__textarea" id="rv-text" name="text" rows="4" required></textarea>
+          </div>
+
+          <p class="form__status" id="review-status" role="status" aria-live="polite"></p>
+
+          <button class="button button--block" type="submit">Отправить отзыв</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <section class="site-footer__col">
+        <h2 class="site-footer__title">Надежный мотор</h2>
+        <p class="site-footer__text">
+          Ремонт и обслуживание легковых автомобилей. Работаем с 2011 года,
+          за это время приняли более 8 400 машин.
+        </p>
+      </section>
+
+      <nav class="site-footer__col" aria-label="Навигация в подвале">
+        <h2 class="site-footer__title">Навигация</h2>
+        <ul class="site-footer__list">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Услуги и цены</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <section class="site-footer__col">
+        <h2 class="site-footer__title">Услуги</h2>
+        <ul class="site-footer__list">
+          <li><a href="catalog.html#diagnostika">Диагностика</a></li>
+          <li><a href="catalog.html#dvigatel">Ремонт двигателя</a></li>
+          <li><a href="catalog.html#hodovaya">Ремонт подвески</a></li>
+          <li><a href="catalog.html#to">Замена масла</a></li>
+        </ul>
+      </section>
+
+      <section class="site-footer__col">
+        <h2 class="site-footer__title">Контакты</h2>
+        <address class="site-footer__contacts">
+          <a href="tel:+73532124590">+7 (3532) 12-45-90</a><br>
+          Оренбург, ул. Академика Сахарова, 55<br>
+          Пн–Сб: 9:00–20:00, Вс: 10:00–18:00<br>
+          <a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a>
+        </address>
+      </section>
+    </div>
+
+    <div class="container site-footer__bottom">
+      <p>© 2026 Автосервис «Надежный мотор»</p>
+      <p><a href="contacts.html">Политика обработки данных</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

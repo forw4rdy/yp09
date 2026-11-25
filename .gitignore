@@ -1,0 +1,6 @@
+node_modules/
+*.log
+database.db-wal
+database.db-shm
+.DS_Store
+Thumbs.db
