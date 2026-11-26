@@ -1,69 +1,102 @@
-# Надежный мотор
+# Надежный мотор — сайт автосервиса
 
-Сайт автосервиса «Надежный мотор» (Оренбург). Учебный проект: Node.js + Express +
-SQLite + Fetch API. Текущий этап — **День 8–9**: правильная структура папок,
-семантическая HTML-разметка, пустые CSS/JS под будущую стилизацию.
+Сайт автосервиса «Надежный мотор»: 5 страниц, AJAX через Fetch API,
+сервер на Node.js (Express), база данных SQLite.
 
-## Структура проекта
+## Стек
 
-```
-yp09-copy/
-├── database.db              # база SQLite
-├── .env                     # переменные окружения (PORT, DB_PATH)
-├── .gitignore
-├── package.json
-├── README.md
-├── public/                  # клиентская часть
-│   ├── index.html           # главная
-│   ├── catalog.html         # каталог услуг
-│   ├── about.html           # о нас
-│   ├── contacts.html        # контакты и формы
-│   ├── 404.html             # страница «не найдено»
-│   ├── css/
-│   │   ├── reset.css        # сброс стилей (пустой, этап стилизации)
-│   │   └── style.css        # основные стили (пустой, этап стилизации)
-│   ├── js/
-│   │   └── script.js        # клиентская логика (пустой, этап стилизации)
-│   └── images/              # изображения сайта
-└── src/                     # серверная часть
-    ├── server.js            # точка входа Express
-    ├── routes/
-    │   └── api.js           # REST API (услуги, отзывы, заявки, сообщения)
-    └── models/
-        ├── database.js      # подключение к SQLite и схема таблиц
-        └── initDatabase.js  # первичное наполнение базы
-```
+| Слой        | Технология                     |
+| ----------- | ------------------------------ |
+| Сервер      | Node.js 24, Express 5          |
+| База данных | SQLite (`node:sqlite`, встроена в Node) |
+| Фронтенд    | HTML, CSS, ванильный JS (AJAX — Fetch API) |
+| Шрифты      | Manrope + IBM Plex Mono (локально, без CDN) |
 
-## Семантическая разметка
+## Страницы
 
-На всех страницах используются теги `header`, `nav`, `main`, `section`,
-`article`, `footer`, а также `address`, `form`, `fieldset`-подобные блоки полей.
-Навигация продублирована в подвале отдельным `nav`.
+- `/` — главная: герой, услуги, процесс, преимущества, отзывы, форма записи
+- `/services` — каталог услуг с AJAX-фильтром по категориям
+- `/services/:slug` — страница отдельной услуги (данные грузятся по slug)
+- `/about` — о сервисе: история, принципы, команда, оборудование
+- `/contacts` — контакты, схема проезда, форма обратной связи, FAQ
+- любая неизвестная — страница 404
+
+## AJAX (Fetch API)
+
+Весь динамический контент и все формы работают через `fetch`:
+
+| Запрос                       | Метод | Назначение                          |
+| ---------------------------- | ----- | ----------------------------------- |
+| `/api/services`              | GET   | список услуг, `?category=` — фильтр  |
+| `/api/services/categories`   | GET   | список категорий                    |
+| `/api/services/:slug`        | GET   | одна услуга + похожие               |
+| `/api/reviews`               | GET   | отзывы (`?limit=`)                  |
+| `/api/reviews`               | POST  | добавить отзыв                      |
+| `/api/bookings`              | POST  | заявка на ремонт                    |
+| `/api/messages`              | POST  | сообщение из формы контактов        |
 
 ## Запуск
 
 ```bash
 npm install
 npm start
+# сайт: http://localhost:3000
 ```
 
-Сервер поднимется на `http://localhost:3000` (порт задаётся в `.env`).
-База `database.db` создаётся автоматически при первом запуске и наполняется
-демонстрационными услугами и отзывами.
+При первом запуске создаётся `data/site.db` и наполняется демо-данными
+(12 услуг, 6 отзывов).
 
-## API
+Режим разработки с автоперезапуском:
 
-| Метод | Путь                      | Назначение                  |
-|-------|---------------------------|-----------------------------|
-| GET   | `/api/services`           | список услуг (фильтр `?category=`) |
-| GET   | `/api/services/categories`| категории услуг             |
-| GET   | `/api/services/:slug`     | одна услуга + похожие       |
-| GET   | `/api/reviews`            | отзывы (`?limit=`)          |
-| POST  | `/api/reviews`            | добавить отзыв              |
-| POST  | `/api/bookings`           | запись на ремонт            |
-| POST  | `/api/messages`           | сообщение из формы контактов|
+```bash
+npm run dev
+```
 
-## Этапы
+## Структура
 
-- **День 8–9** — структура папок, семантическая разметка, пустые CSS/JS, изображения, коммит.
-- Далее — наполнение `reset.css` / `style.css` и `script.js` (стилизация и AJAX).
+```
+├── server.js          # Express: статика + REST API + маршруты страниц
+├── db.js              # SQLite: схема, сид-данные
+├── data/
+│   └── site.db        # база (создаётся автоматически, не в git)
+└── public/
+    ├── index.html     # главная
+    ├── services.html  # каталог услуг
+    ├── service.html   # страница услуги (шаблон, данные через AJAX)
+    ├── about.html     # о нас
+    ├── contacts.html  # контакты
+    ├── 404.html
+    ├── css/style.css
+    ├── js/
+    │   ├── main.js     # шапка, меню, reveal, FAQ, apiRequest()
+    │   ├── home.js     # главная: услуги, отзывы, форма записи
+    │   ├── services.js # каталог: фильтр и рендер карточек
+    │   ├── service.js  # страница услуги по slug
+    │   └── contacts.js # форма контактов + валидация
+    ├── fonts/          # локальные woff2
+    └── img/            # фотографии (Wikimedia Commons, CC)
+```
+
+## Git
+
+```bash
+git init
+git add .
+git commit -m "Сайт автосервиса «Надежный мотор»: Express + SQLite + AJAX"
+```
+
+Публикация на GitHub:
+
+```bash
+git remote add origin https://github.com/<ваш-логин>/nadezhny-motor.git
+git push -u origin main
+```
+
+## Источники фотографий
+
+Снимки загружены с Wikimedia Commons и используются по лицензиям CC:
+
+- Car repair shop — Martin Vorel, CC BY-SA 4.0
+- Car mechanic / mechanic works in garage — Shixart1985, CC BY 2.0
+- Changing engine oil, oil on engine, car on lift, diagnostics — Shixart1985, CC BY 2.0
+- Modern car wheel balancing machine — CC BY 2.0

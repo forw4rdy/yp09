@@ -1,206 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>О нас — Надежный мотор</title>
-  <meta name="description" content="Автосервис «Надежный мотор» в Оренбурге: история с 2011 года, принципы работы, мастера и гарантии.">
-  <link rel="stylesheet" href="css/reset.css">
+  <title>О нас — автосервис «Надежный мотор»</title>
+  <meta name="description" content="Автосервис «Надежный мотор» работает в Оренбурге с 2011 года: команда мастеров, оборудование, принципы работы и гарантии.">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101a17'/%3E%3Cpath d='M9 22V10l7 8 7-8v12' stroke='%23c9ef4b' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="css/bento.css">
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!window.NM_REVEALED) document.documentElement.classList.remove('js');
+    }, 2500);
+  </script>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
+  <header class="header" id="header">
+    <div class="container header__inner">
       <a class="logo" href="index.html" aria-label="Надежный мотор — на главную">
-        <span class="logo__name">Надежный мотор</span>
-        <span class="logo__sub">Автосервис · Оренбург</span>
+        <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <span class="logo__text">
+          <span class="logo__name">Надежный мотор</span>
+          <span class="logo__sub">Автосервис · Оренбург</span>
+        </span>
       </a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="index.html">Главная</a></li>
-          <li><a class="site-nav__link" href="catalog.html">Услуги</a></li>
-          <li><a class="site-nav__link" href="about.html" aria-current="page">О нас</a></li>
-          <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-        </ul>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="index.html" data-nav="index.html">Главная</a>
+        <a class="nav__link" href="services.html" data-nav="services.html">Услуги</a>
+        <a class="nav__link" href="about.html" data-nav="about.html">О нас</a>
+        <a class="nav__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
       </nav>
 
-      <a class="site-header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+        <a class="btn" href="contacts.html#zapis">Записаться</a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mobile-menu__link" href="index.html" data-nav="index.html">Главная</a>
+    <a class="mobile-menu__link" href="services.html" data-nav="services.html">Услуги</a>
+    <a class="mobile-menu__link" href="about.html" data-nav="about.html">О нас</a>
+    <a class="mobile-menu__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
+    <div class="mobile-menu__foot">
+      <a class="mobile-menu__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+      <a class="btn btn--block" href="contacts.html#zapis">Записаться на ремонт</a>
+    </div>
+  </div>
 
   <main>
 
     <section class="page-head">
       <div class="container">
         <nav class="breadcrumb" aria-label="Хлебные крошки">
-          <a href="index.html">Главная</a> / <span>О нас</span>
+          <a href="index.html">Главная</a>
+          <span class="breadcrumb__sep">/</span>
+          <span>О нас</span>
         </nav>
-        <h1 class="page-head__title">Автосервис, который держит слово</h1>
-        <p class="page-head__lead">
-          С 2011 года мы ремонтируем легковые автомобили в Оренбурге. За это время
-          через наши боксы прошло более 8 400 машин.
+        <div class="page-head__row">
+          <h1 class="h-lg page-head__title">О сервисе</h1>
+          <p class="lead" style="max-width: 44ch;">
+            Четыре бокса, шесть мастеров и одно правило: не делать
+            того, что не просили.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="split" style="align-items:start;">
+          <div class="prose reveal">
+            <p>
+              «Надежный мотор» открылся в 2011 году как небольшая мастерская
+              на два подъёмника. Сегодня это четыре бокса, собственная
+              диагностическая зона и команда из шести человек.
+            </p>
+            <p>
+              Мы не растём в сеть и не открываем филиалы. Это осознанный
+              выбор: один адрес, одни мастера, одна зона ответственности.
+              Каждый автомобиль, который приезжает к нам, обслуживает
+              закреплённый за ним мастер — он помнит историю машины
+              и не начинает диагностику заново при каждом визите.
+            </p>
+            <p>
+              За четырнадцать лет мы принимали более 8 400 автомобилей —
+              от экономичных седанов до полноприводных внедорожников
+              и старых «немцев», которые другие сервисы отправляют
+              на списание. Больше половины клиентов приезжает к нам
+              по рекомендации знакомых.
+            </p>
+            <p>
+              Работаем честно: если проблему можно решить без замены
+              узла — мы скажем об этом. Счёт, который вы оплачиваете,
+              совпадает с тем, что согласовали в начале ремонта.
+            </p>
+          </div>
+
+          <figure class="reveal" style="--delay:.1s">
+            <img class="split__img" src="img/lift.jpg" alt="Рабочая зона сервиса: подъёмник и автомобили" width="1280" height="1920" loading="lazy" style="aspect-ratio:4/5;">
+            <figcaption class="hero__caption">
+              <span>Бокс №1 — зона ТО</span>
+              <span>Подъёмник 4 т</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--tight" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="container">
+        <div class="stats reveal">
+          <div class="stats__item">
+            <div class="stats__num">8 400<sup>+</sup></div>
+            <div class="stats__label">автомобилей<br>принято с 2011</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__num">6</div>
+            <div class="stats__label">мастеров<br>в команде</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__num">4</div>
+            <div class="stats__label">ремонтных<br>бокса</div>
+          </div>
+          <div class="stats__item">
+            <div class="stats__num">68<sup>%</sup></div>
+            <div class="stats__label">клиентов<br>по рекомендации</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__left">
+            <p class="section-head__label mono-label">Принципы</p>
+            <h2 class="h-lg">Как мы работаем</h2>
+          </div>
+        </div>
+
+        <div class="values reveal">
+          <div class="value">
+            <span class="value__num">01</span>
+            <h3 class="value__title">Сначала причина, потом замена</h3>
+            <p class="value__text">
+              Не меняем узлы «на всякий случай». Сначала диагностируем
+              и находим источник проблемы, потом предлагаем решение —
+              с цифрами и объяснением.
+            </p>
+          </div>
+          <div class="value">
+            <span class="value__num">02</span>
+            <h3 class="value__title">Цена известна заранее</h3>
+            <p class="value__text">
+              Смета подписывается до начала работ. Если по ходу ремонта
+              всплыло что-то новое — останавливаемся и снова звоним вам,
+              а не дописываем в чек.
+            </p>
+          </div>
+          <div class="value">
+            <span class="value__num">03</span>
+            <h3 class="value__title">Старые детали возвращаем</h3>
+            <p class="value__text">
+              Заменённые запчасти отдаём вам — проверяйте сами.
+              Это касается и мелочи, и крупных узлов вроде генератора
+              или компрессора кондиционера.
+            </p>
+          </div>
+          <div class="value">
+            <span class="value__num">04</span>
+            <h3 class="value__title">Гарантия оформляется письменно</h3>
+            <p class="value__text">
+              Гарантийный талон со сроком и перечнем работ выдаём сразу.
+              Если проблема вернётся в гарантийный период — устраняем
+              бесплатно, даже если виноваты вы.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="border-top:1px solid var(--line);">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head__left">
+            <p class="section-head__label mono-label">Команда</p>
+            <h2 class="h-lg">Кто чинит вашу машину</h2>
+          </div>
+        </div>
+
+        <div class="team reveal">
+          <div class="member">
+            <div class="member__initials" aria-hidden="true">СВ</div>
+            <div>
+              <div class="member__name">Сергей Волков</div>
+              <div class="member__role">Главный мастер · 18 лет</div>
+            </div>
+          </div>
+          <div class="member">
+            <div class="member__initials" aria-hidden="true">АК</div>
+            <div>
+              <div class="member__name">Андрей Кузнецов</div>
+              <div class="member__role">Двигатели · 14 лет</div>
+            </div>
+          </div>
+          <div class="member">
+            <div class="member__initials" aria-hidden="true">МС</div>
+            <div>
+              <div class="member__name">Михаил Соколов</div>
+              <div class="member__role">Диагностика и электрика · 11 лет</div>
+            </div>
+          </div>
+          <div class="member">
+            <div class="member__initials" aria-hidden="true">ЕЛ</div>
+            <div>
+              <div class="member__name">Елена Лапина</div>
+              <div class="member__role">Администратор · 9 лет</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--paper-2); border-top:1px solid var(--line);">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <p class="section-head__label mono-label" style="margin-bottom:20px;">Оборудование</p>
+            <h2 class="h-lg" style="margin-bottom:28px;">На чём работаем</h2>
+            <p class="lead" style="margin-bottom:36px;">
+              Вложения в технику — это точность диагностики. Ниже то,
+              на чём ежедневно работают наши мастера.
+            </p>
+            <a class="btn" href="contacts.html#zapis">
+              Записаться на диагностику
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </a>
+          </div>
+
+          <div class="reveal" style="--delay:.1s">
+            <ul class="includes">
+              <li>Диагностический стенд Bosch KTS 560</li>
+              <li>Осциллограф и мультиметр для поиска неисправностей</li>
+              <li>Подъёмники: два двухстоечных (4 т) и четырёхстоечный (5 т)</li>
+              <li>Станок развал-схождение Hunter Elite</li>
+              <li>Шиномонтажное и балансировочное оборудование Corghi</li>
+              <li>Стенд проверки стартеров и генераторов</li>
+              <li>Аппарат заправки кондиционеров с течеискателем</li>
+              <li>Агрегат для замены масла в АКПП под давлением</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="container" style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:26px;">
+        <p class="mono-label reveal">Первый визит</p>
+        <h2 class="h-lg reveal" style="max-width:20ch;">Приезжайте — посмотрим вашу машину</h2>
+        <p class="lead reveal" style="text-align:center;">
+          Диагностика бесплатна, если вы решите делать ремонт у нас.
+          Если нет — платите только за работу по проверке.
         </p>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="story-title">
-      <div class="container">
-        <h2 class="section__title" id="story-title">Наша история</h2>
-        <div class="prose">
-          <p>
-            «Надежный мотор» открылся в 2011 году как небольшой гаражный сервис
-            на два подъёмника. Основатель — мастер с опытом работы на официальных
-            станциях — устал от практики «заменим всё, авось поможет» и решил
-            строить сервис на противоположном принципе: сначала диагностика,
-            потом честная смета, и только затем ремонт.
-          </p>
-          <p>
-            Сегодня у нас четыре ремонтных бокса, стенд развал-схождения, диагностическое
-            оборудование Bosch KTS и команда из восьми мастеров. Мы по-прежнему
-            не берёмся за работу, не объяснив клиенту, за что он платит.
-          </p>
+        <div class="reveal" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
+          <a class="btn btn--light" href="contacts.html#zapis">
+            Оставить заявку
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </a>
+          <a class="btn btn--ghost" style="border-color:var(--line-dark); color:var(--on-dark);" href="tel:+73532124590">+7 (3532) 12-45-90</a>
         </div>
-
-        <figure class="about__media">
-          <img src="images/mechanic.jpg" alt="Мастер автосервиса за работой" width="480" height="640">
-          <figcaption>Андрей Кузнецов — двигатели, 14 лет опыта</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="values-title">
-      <div class="container">
-        <h2 class="section__title" id="values-title">Принципы работы</h2>
-
-        <div class="features">
-          <article class="feature">
-            <h3 class="feature__title">Сначала диагностика</h3>
-            <p class="feature__text">Не меняем детали «на всякий случай». Сначала находим причину, потом предлагаем ремонт.</p>
-          </article>
-          <article class="feature">
-            <h3 class="feature__title">Понятная смета</h3>
-            <p class="feature__text">Цена фиксируется письменно до начала работ. Дополнительные работы — только с вашего согласия.</p>
-          </article>
-          <article class="feature">
-            <h3 class="feature__title">Гарантия на работы</h3>
-            <p class="feature__text">До 24 месяцев на двигатель и выполненные работы. Гарантийный талон выдаём сразу.</p>
-          </article>
-          <article class="feature">
-            <h3 class="feature__title">Обратная связь</h3>
-            <p class="feature__text">Держим в курсе на каждом этапе и отдаём отчёт: что проверили, нашли и заменили.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="team-title">
-      <div class="container">
-        <h2 class="section__title" id="team-title">Мастера</h2>
-
-        <div class="team">
-          <article class="team__member">
-            <h3 class="team__name">Андрей Кузнецов</h3>
-            <p class="team__role">Двигатели · 14 лет опыта</p>
-            <p class="team__text">Специализируется на капитальном ремонте и поиске сложных неисправностей.</p>
-          </article>
-          <article class="team__member">
-            <h3 class="team__name">Михаил Орлов</h3>
-            <p class="team__role">Ходовая часть · 11 лет опыта</p>
-            <p class="team__text">Подвеска, рулевое управление и развал-схождение на стенде.</p>
-          </article>
-          <article class="team__member">
-            <h3 class="team__name">Игорь Белов</h3>
-            <p class="team__role">Электрика · 9 лет опыта</p>
-            <p class="team__text">Диагностика электронных систем, стартеры, генераторы и проводка.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="stats-title">
-      <div class="container">
-        <h2 class="section__title" id="stats-title">Сервис в цифрах</h2>
-
-        <dl class="stats">
-          <div class="stats__item">
-            <dt class="stats__label">Автомобилей принято с 2011 года</dt>
-            <dd class="stats__value">8 400+</dd>
-          </div>
-          <div class="stats__item">
-            <dt class="stats__label">Гарантия на двигатель и работы</dt>
-            <dd class="stats__value">24 мес</dd>
-          </div>
-          <div class="stats__item">
-            <dt class="stats__label">Ремонтных бокса на одном адресе</dt>
-            <dd class="stats__value">4</dd>
-          </div>
-          <div class="stats__item">
-            <dt class="stats__label">Средняя оценка клиентов</dt>
-            <dd class="stats__value">4,9 / 5</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="section section--dark" aria-labelledby="about-cta-title">
-      <div class="container">
-        <h2 class="section__title" id="about-cta-title">Приезжайте знакомиться</h2>
-        <p class="section__lead">Покажем боксы, расскажем о процессе и подберём удобное время для диагностики.</p>
-        <a class="button" href="contacts.html#zapis">Записаться</a>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__grid">
-      <section class="site-footer__col">
-        <h2 class="site-footer__title">Надежный мотор</h2>
-        <p class="site-footer__text">
-          Ремонт и обслуживание легковых автомобилей. Работаем с 2011 года,
-          за это время приняли более 8 400 машин.
-        </p>
-      </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="index.html">
+            <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
+            </svg>
+            <span class="logo__text">
+              <span class="logo__name">Надежный мотор</span>
+              <span class="logo__sub">Автосервис · Оренбург</span>
+            </span>
+          </a>
+          <p class="footer__about">
+            Ремонт и обслуживание легковых автомобилей. Работаем с 2011 года,
+            за это время приняли более 8 400 машин.
+          </p>
+        </div>
 
-      <nav class="site-footer__col" aria-label="Навигация в подвале">
-        <h2 class="site-footer__title">Навигация</h2>
-        <ul class="site-footer__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Услуги и цены</a></li>
-          <li><a href="about.html">О нас</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-      </nav>
+        <div>
+          <h3 class="footer__title">Навигация</h3>
+          <ul class="footer__list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="services.html">Услуги и цены</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
 
-      <section class="site-footer__col">
-        <h2 class="site-footer__title">Услуги</h2>
-        <ul class="site-footer__list">
-          <li><a href="catalog.html#diagnostika">Диагностика</a></li>
-          <li><a href="catalog.html#dvigatel">Ремонт двигателя</a></li>
-          <li><a href="catalog.html#hodovaya">Ремонт подвески</a></li>
-          <li><a href="catalog.html#to">Замена масла</a></li>
-        </ul>
-      </section>
+        <div>
+          <h3 class="footer__title">Услуги</h3>
+          <ul class="footer__list">
+            <li><a href="service.html?slug=kompyuternaya-diagnostika">Диагностика</a></li>
+            <li><a href="service.html?slug=remont-dvigatelya">Ремонт двигателя</a></li>
+            <li><a href="service.html?slug=remont-podveski">Ремонт подвески</a></li>
+            <li><a href="service.html?slug=zameny-masla-i-filtrov">Замена масла</a></li>
+          </ul>
+        </div>
 
-      <section class="site-footer__col">
-        <h2 class="site-footer__title">Контакты</h2>
-        <address class="site-footer__contacts">
-          <a href="tel:+73532124590">+7 (3532) 12-45-90</a><br>
-          Оренбург, ул. Академика Сахарова, 55<br>
-          Пн–Сб: 9:00–20:00, Вс: 10:00–18:00<br>
-          <a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a>
-        </address>
-      </section>
-    </div>
+        <div>
+          <h3 class="footer__title">Контакты</h3>
+          <ul class="footer__list footer__contacts">
+            <li><a href="tel:+73532124590">+7 (3532) 12-45-90</a></li>
+            <li>Оренбург, ул. Академика Сахарова, 55</li>
+            <li>Пн–Сб: 9:00–20:00<br>Вс: 10:00–18:00</li>
+            <li><a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a></li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="container site-footer__bottom">
-      <p>© 2026 Автосервис «Надежный мотор»</p>
-      <p><a href="contacts.html">Политика обработки данных</a></p>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Автосервис «Надежный мотор»</span>
+        <a href="contacts.html">Политика обработки данных</a>
+      </div>
     </div>
   </footer>
 
+  <script src="js/main.js"></script>
+  <script src="js/motion.js"></script>
 </body>
 </html>

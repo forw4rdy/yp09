@@ -1,56 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Страница не найдена — Надежный мотор</title>
   <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="css/reset.css">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101a17'/%3E%3Cpath d='M9 22V10l7 8 7-8v12' stroke='%23c9ef4b' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="css/bento.css">
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!window.NM_REVEALED) document.documentElement.classList.remove('js');
+    }, 2500);
+  </script>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
+  <header class="header" id="header">
+    <div class="container header__inner">
       <a class="logo" href="index.html" aria-label="Надежный мотор — на главную">
-        <span class="logo__name">Надежный мотор</span>
-        <span class="logo__sub">Автосервис · Оренбург</span>
+        <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <span class="logo__text">
+          <span class="logo__name">Надежный мотор</span>
+          <span class="logo__sub">Автосервис · Оренбург</span>
+        </span>
       </a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="index.html">Главная</a></li>
-          <li><a class="site-nav__link" href="catalog.html">Услуги</a></li>
-          <li><a class="site-nav__link" href="about.html">О нас</a></li>
-          <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
-        </ul>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="index.html" data-nav="index.html">Главная</a>
+        <a class="nav__link" href="services.html" data-nav="services.html">Услуги</a>
+        <a class="nav__link" href="about.html" data-nav="about.html">О нас</a>
+        <a class="nav__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
       </nav>
+
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+        <a class="btn" href="contacts.html#zapis">Записаться</a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mobile-menu__link" href="index.html" data-nav="index.html">Главная</a>
+    <a class="mobile-menu__link" href="services.html" data-nav="services.html">Услуги</a>
+    <a class="mobile-menu__link" href="about.html" data-nav="about.html">О нас</a>
+    <a class="mobile-menu__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
+    <div class="mobile-menu__foot">
+      <a class="mobile-menu__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+      <a class="btn btn--block" href="contacts.html#zapis">Записаться на ремонт</a>
+    </div>
+  </div>
+
   <main>
     <section class="not-found">
-      <div class="container">
-        <p class="not-found__code">404</p>
-        <h1 class="not-found__title">Такой страницы нет</h1>
-        <p class="not-found__text">
-          Возможно, ссылка устарела. Вернитесь на главную или посмотрите каталог услуг.
-        </p>
-        <p class="not-found__actions">
-          <a class="button" href="index.html">На главную</a>
-          <a class="button button--ghost" href="catalog.html">Услуги и цены</a>
-        </p>
+      <div class="not-found__code">404</div>
+      <p class="mono-label">Страница не найдена</p>
+      <h1 class="h-md">Похоже, такой страницы нет</h1>
+      <p class="lead" style="text-align:center;">
+        Возможно, ссылка устарела или в адресе опечатка.
+        Вернитесь на главную или посмотрите список услуг.
+      </p>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-top:8px;">
+        <a class="btn" href="index.html">
+          На главную
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="services.html">Список услуг</a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__bottom">
-      <p>© 2026 Автосервис «Надежный мотор»</p>
-      <p><a href="contacts.html">Политика обработки данных</a></p>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:0;">
+        <span>© <span data-year>2026</span> Автосервис «Надежный мотор»</span>
+        <a href="tel:+73532124590">+7 (3532) 12-45-90</a>
+        <span>Оренбург, ул. Академика Сахарова, 55</span>
+      </div>
     </div>
   </footer>
 
+  <script src="js/main.js"></script>
+  <script src="js/motion.js"></script>
 </body>
 </html>

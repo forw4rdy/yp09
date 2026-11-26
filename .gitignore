@@ -1,6 +1,7 @@
 node_modules/
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
 *.log
-database.db-wal
-database.db-shm
 .DS_Store
-Thumbs.db

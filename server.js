@@ -1,9 +1,15 @@
 'use strict';
 
+const path = require('path');
 const express = require('express');
-const db = require('../models/database');
+const db = require('./db');
 
-const router = express.Router();
+const app = express();
+const PORT = process.env.PORT || 3000;
+const PUBLIC_DIR = path.join(__dirname, 'public');
+
+app.use(express.json());
+app.use(express.static(PUBLIC_DIR, { index: 'index.html', etag: true }));
 
 /* ---------- helpers ---------- */
 
@@ -25,9 +31,9 @@ function sendOk(res, data) {
   res.json(Object.assign({ ok: true }, data || {}));
 }
 
-/* ---------- услуги ---------- */
+/* ---------- API: услуги ---------- */
 
-router.get('/services', (req, res) => {
+app.get('/api/services', (req, res) => {
   const category = typeof req.query.category === 'string' ? req.query.category.trim() : '';
   let rows;
   if (category && category !== 'Все') {
@@ -42,14 +48,14 @@ router.get('/services', (req, res) => {
   sendOk(res, { services: rows });
 });
 
-router.get('/services/categories', (req, res) => {
+app.get('/api/services/categories', (req, res) => {
   const rows = db
     .prepare('SELECT category FROM services GROUP BY category ORDER BY MIN(sort)')
     .all();
   sendOk(res, { categories: rows.map(r => r.category) });
 });
 
-router.get('/services/:slug', (req, res) => {
+app.get('/api/services/:slug', (req, res) => {
   const row = db
     .prepare('SELECT * FROM services WHERE slug = ?')
     .get(req.params.slug);
@@ -73,9 +79,9 @@ router.get('/services/:slug', (req, res) => {
   sendOk(res, { service: Object.assign({}, row, { includes }), related });
 });
 
-/* ---------- отзывы ---------- */
+/* ---------- API: отзывы ---------- */
 
-router.get('/reviews', (req, res) => {
+app.get('/api/reviews', (req, res) => {
   const limit = Math.min(parseInt(req.query.limit, 10) || 6, 50);
   const rows = db
     .prepare('SELECT id, author, car, text, rating, created_at FROM reviews ORDER BY id DESC LIMIT ?')
@@ -83,7 +89,7 @@ router.get('/reviews', (req, res) => {
   sendOk(res, { reviews: rows });
 });
 
-router.post('/reviews', (req, res) => {
+app.post('/api/reviews', (req, res) => {
   const body = req.body || {};
   const author = isBlank(body.author) ? '' : String(body.author).trim();
   const text = isBlank(body.text) ? '' : String(body.text).trim();
@@ -111,9 +117,9 @@ router.post('/reviews', (req, res) => {
   sendOk(res, { review: row });
 });
 
-/* ---------- запись на ремонт ---------- */
+/* ---------- API: запись на ремонт ---------- */
 
-router.post('/bookings', (req, res) => {
+app.post('/api/bookings', (req, res) => {
   const body = req.body || {};
   const name = isBlank(body.name) ? '' : String(body.name).trim();
   const phone = isBlank(body.phone) ? '' : String(body.phone).trim();
@@ -137,9 +143,9 @@ router.post('/bookings', (req, res) => {
   sendOk(res, { message: 'Заявка принята — перезвоним в течение 15 минут' });
 });
 
-/* ---------- форма контактов ---------- */
+/* ---------- API: форма контактов ---------- */
 
-router.post('/messages', (req, res) => {
+app.post('/api/messages', (req, res) => {
   const body = req.body || {};
   const name = isBlank(body.name) ? '' : String(body.name).trim();
   const phone = isBlank(body.phone) ? '' : String(body.phone).trim();
@@ -165,4 +171,35 @@ router.post('/messages', (req, res) => {
   sendOk(res, { message: 'Сообщение отправлено, ответим в рабочее время' });
 });
 
-module.exports = router;
+/* ---------- страницы ---------- */
+
+const PAGES = [
+  ['/', 'index.html'],
+  ['/services', 'services.html'],
+  ['/about', 'about.html'],
+  ['/contacts', 'contacts.html']
+];
+
+for (const [route, file] of PAGES) {
+  app.get(route, (req, res) => res.sendFile(path.join(PUBLIC_DIR, file)));
+}
+
+app.get('/services/:slug', (req, res) => {
+  res.sendFile(path.join(PUBLIC_DIR, 'service.html'));
+});
+
+/* ---------- 404 и ошибки ---------- */
+
+app.use((req, res) => {
+  res.status(404).sendFile(path.join(PUBLIC_DIR, '404.html'));
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  if (res.headersSent) return next(err);
+  sendError(res, 500, 'Внутренняя ошибка сервера');
+});
+
+app.listen(PORT, () => {
+  console.log(`«Надежный мотор» запущен: http://localhost:${PORT}`);
+});

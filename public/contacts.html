@@ -1,253 +1,355 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контакты — Надежный мотор</title>
-  <meta name="description" content="Контакты автосервиса «Надежный мотор» в Оренбурге: адрес, телефон, режим работы и онлайн-запись на ремонт.">
-  <link rel="stylesheet" href="css/reset.css">
+  <title>Контакты — автосервис «Надежный мотор»</title>
+  <meta name="description" content="Контакты автосервиса «Надежный мотор»: адрес Оренбург, ул. Академика Сахарова, 55, телефон, режим работы, форма обратной связи и схема проезда.">
+  <meta name="theme-color" content="#f2efe7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101a17'/%3E%3Cpath d='M9 22V10l7 8 7-8v12' stroke='%23c9ef4b' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+  <link rel="stylesheet" href="css/bento.css">
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!window.NM_REVEALED) document.documentElement.classList.remove('js');
+    }, 2500);
+  </script>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container site-header__inner">
+  <header class="header" id="header">
+    <div class="container header__inner">
       <a class="logo" href="index.html" aria-label="Надежный мотор — на главную">
-        <span class="logo__name">Надежный мотор</span>
-        <span class="logo__sub">Автосервис · Оренбург</span>
+        <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <span class="logo__text">
+          <span class="logo__name">Надежный мотор</span>
+          <span class="logo__sub">Автосервис · Оренбург</span>
+        </span>
       </a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="index.html">Главная</a></li>
-          <li><a class="site-nav__link" href="catalog.html">Услуги</a></li>
-          <li><a class="site-nav__link" href="about.html">О нас</a></li>
-          <li><a class="site-nav__link" href="contacts.html" aria-current="page">Контакты</a></li>
-        </ul>
+      <nav class="nav" aria-label="Основная навигация">
+        <a class="nav__link" href="index.html" data-nav="index.html">Главная</a>
+        <a class="nav__link" href="services.html" data-nav="services.html">Услуги</a>
+        <a class="nav__link" href="about.html" data-nav="about.html">О нас</a>
+        <a class="nav__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
       </nav>
 
-      <a class="site-header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+      <div class="header__actions">
+        <a class="header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+        <a class="btn" href="#zapis">Записаться</a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mobile-menu__link" href="index.html" data-nav="index.html">Главная</a>
+    <a class="mobile-menu__link" href="services.html" data-nav="services.html">Услуги</a>
+    <a class="mobile-menu__link" href="about.html" data-nav="about.html">О нас</a>
+    <a class="mobile-menu__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
+    <div class="mobile-menu__foot">
+      <a class="mobile-menu__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
+      <a class="btn btn--block" href="#zapis">Записаться на ремонт</a>
+    </div>
+  </div>
 
   <main>
 
     <section class="page-head">
       <div class="container">
         <nav class="breadcrumb" aria-label="Хлебные крошки">
-          <a href="index.html">Главная</a> / <span>Контакты</span>
+          <a href="index.html">Главная</a>
+          <span class="breadcrumb__sep">/</span>
+          <span>Контакты</span>
         </nav>
-        <h1 class="page-head__title">Контакты</h1>
-        <p class="page-head__lead">
-          Приезжайте на диагностику или позвоните — подскажем по стоимости и срокам.
-        </p>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="contacts-title">
-      <div class="container">
-        <h2 class="section__title" id="contacts-title">Как нас найти</h2>
-
-        <div class="contacts">
-          <article class="contacts__card">
-            <h3 class="contacts__title">Адрес</h3>
-            <address class="contacts__text">
-              Оренбург, ул. Академика Сахарова, 55<br>
-              Боксы №1–4, въезд со двора
-            </address>
-          </article>
-
-          <article class="contacts__card">
-            <h3 class="contacts__title">Телефон и почта</h3>
-            <p class="contacts__text">
-              <a href="tel:+73532124590">+7 (3532) 12-45-90</a><br>
-              <a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a>
-            </p>
-          </article>
-
-          <article class="contacts__card">
-            <h3 class="contacts__title">Режим работы</h3>
-            <p class="contacts__text">
-              Пн–Сб: 9:00–20:00<br>
-              Вс: 10:00–18:00
-            </p>
-          </article>
+        <div class="page-head__row">
+          <h1 class="h-lg page-head__title">Контакты</h1>
+          <p class="lead" style="max-width: 42ch;">
+            Приезжайте без записи — но со звонком по телефону
+            вы гарантированно попадёте в свободный бокс.
+          </p>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="map-title">
+    <section class="section">
       <div class="container">
-        <h2 class="section__title" id="map-title">На карте</h2>
-        <div class="map" role="img" aria-label="Схема проезда: Оренбург, улица Академика Сахарова, 55">
-          <p class="map__placeholder">Карта проезда будет добавлена на этапе стилизации.</p>
+        <div class="contacts-grid">
+          <div class="reveal">
+            <div class="contact-items">
+              <div class="contact-item">
+                <span class="contact-item__label">Адрес</span>
+                <span class="contact-item__value">
+                  Оренбург, ул. Академика Сахарова, 55
+                  <small>Въезд со стороны ул. Маршала Жукова, 300 м от проспекта Гагарина</small>
+                </span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__label">Телефон</span>
+                <span class="contact-item__value">
+                  <a href="tel:+73532124590">+7 (3532) 12-45-90</a>
+                  <small>Звонок и SMS на WhatsApp / Telegram по тому же номеру</small>
+                </span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__label">Почта</span>
+                <span class="contact-item__value">
+                  <a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a>
+                  <small>Для счетов, договоров и корпоративных клиентов</small>
+                </span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__label">Режим работы</span>
+                <span class="contact-item__value">
+                  Пн–Сб: 9:00–20:00 · Вс: 10:00–18:00
+                  <small>Приём автомобилей заканчивается за час до закрытия</small>
+                </span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-item__label">Реквизиты</span>
+                <span class="contact-item__value">
+                  ИП Ковалёв С. В.
+                  <small>ОГРНИП 317774600123456 · ИНН 771901234567</small>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+<div class="map reveal" style="--delay:.1s; overflow:hidden;">
+  <iframe
+    src="https://www.google.com/maps?q=ул.%20Академика%20Сахарова,%2055,%20Оренбург&z=18&output=embed"
+    width="100%"
+    height="420"
+    style="display:block; border:0; width:100%;"
+    title="ул. Академика Сахарова, 55, Оренбург"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
         </div>
       </div>
     </section>
 
-    <section class="section section--dark" id="zapis" aria-labelledby="booking-title">
+    <section class="section dark" id="zapis">
       <div class="container">
-        <h2 class="section__title" id="booking-title">Запись на ремонт</h2>
-        <p class="section__lead">Оставьте заявку — перезвоним в течение 15 минут и подберём удобное время.</p>
+        <div class="cta__grid">
+          <div class="reveal">
+            <p class="mono-label">Обратная связь</p>
+            <h2 class="h-lg cta__title">Запишитесь или напишите нам</h2>
+            <p class="lead">
+              Выберите услугу и опишите, что беспокоит — ответим в течение
+              рабочего дня. Если вопрос срочный, быстрее позвонить:
+              перезваниваем в среднем за 15 минут.
+            </p>
+            <ul class="cta__list">
+              <li>Пн–Сб: 9:00–20:00, Вс: 10:00–18:00</li>
+              <li>Запись по телефону, форме или в мессенджере</li>
+              <li>Корпоративным клиентам — отсрочка платежа</li>
+            </ul>
+          </div>
 
-        <form class="form" id="booking-form" action="/api/bookings" method="post" novalidate>
-          <div class="form__row">
-            <div class="field">
-              <label class="field__label" for="bk-name">Ваше имя</label>
-              <input class="field__input" id="bk-name" name="name" type="text" autocomplete="name" placeholder="Иван" required>
+          <form class="form reveal" id="contact-form" style="--delay:.1s" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label class="field__label" for="ct-name">Имя</label>
+                <input class="field__input" id="ct-name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+                <span class="field__error" data-error-for="name"></span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="ct-phone">Телефон</label>
+                <input class="field__input" id="ct-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+                <span class="field__error" data-error-for="phone"></span>
+              </div>
             </div>
+
             <div class="field">
-              <label class="field__label" for="bk-phone">Телефон</label>
-              <input class="field__input" id="bk-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+              <label class="field__label" for="ct-email">E-mail (необязательно)</label>
+              <input class="field__input" id="ct-email" name="email" type="email" autocomplete="email" placeholder="you@example.ru">
+              <span class="field__error" data-error-for="email"></span>
             </div>
-          </div>
 
-          <div class="field">
-            <label class="field__label" for="bk-service">Услуга</label>
-            <select class="field__select" id="bk-service" name="service_id">
-              <option value="">Не знаю, нужна диагностика</option>
-              <option value="1">Компьютерная диагностика</option>
-              <option value="2">Замена масла и фильтров</option>
-              <option value="3">Ремонт подвески</option>
-              <option value="5">Замена ремня ГРМ</option>
-              <option value="6">Капитальный ремонт двигателя</option>
-            </select>
-          </div>
+            <div class="field">
+              <label class="field__label" for="ct-service">Услуга (необязательно)</label>
+              <select class="field__select" id="ct-service" name="service_id">
+                <option value="">Не выбрано — нужна консультация</option>
+              </select>
+              <span class="field__error" data-error-for="service_id"></span>
+            </div>
 
-          <div class="field">
-            <label class="field__label" for="bk-comment">Комментарий</label>
-            <textarea class="field__textarea" id="bk-comment" name="comment" rows="3" placeholder="Марка, год, что беспокоит"></textarea>
-          </div>
+            <div class="field">
+              <label class="field__label" for="ct-message">Сообщение</label>
+              <textarea class="field__textarea" id="ct-message" name="message" rows="4" placeholder="Опишите проблему или задайте вопрос" required></textarea>
+              <span class="field__error" data-error-for="message"></span>
+            </div>
 
-          <p class="form__status" id="booking-status" role="status" aria-live="polite"></p>
+            <p class="form__status" id="contact-status" role="status" aria-live="polite"></p>
 
-          <button class="button button--block" type="submit">Отправить заявку</button>
-          <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
-        </form>
+            <button class="btn btn--light btn--block" type="submit">
+              Отправить сообщение
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
+            </button>
+
+            <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          </form>
+        </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="message-title">
+    <section class="section">
       <div class="container">
-        <h2 class="section__title" id="message-title">Написать нам</h2>
-
-        <form class="form" id="contact-form" action="/api/messages" method="post" novalidate>
-          <div class="form__row">
-            <div class="field">
-              <label class="field__label" for="ct-name">Ваше имя</label>
-              <input class="field__input" id="ct-name" name="name" type="text" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label class="field__label" for="ct-phone">Телефон</label>
-              <input class="field__input" id="ct-phone" name="phone" type="tel" autocomplete="tel">
-            </div>
+        <div class="section-head reveal">
+          <div class="section-head__left">
+            <p class="section-head__label mono-label">Вопросы</p>
+            <h2 class="h-lg">Частые вопросы</h2>
           </div>
+        </div>
 
-          <div class="field">
-            <label class="field__label" for="ct-email">Email</label>
-            <input class="field__input" id="ct-email" name="email" type="email" autocomplete="email">
-          </div>
-
-          <div class="field">
-            <label class="field__label" for="ct-message">Сообщение</label>
-            <textarea class="field__textarea" id="ct-message" name="message" rows="4" required></textarea>
-          </div>
-
-          <p class="form__status" id="contact-status" role="status" aria-live="polite"></p>
-
-          <button class="button button--block" type="submit">Отправить сообщение</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="section" id="otzyv" aria-labelledby="review-title">
-      <div class="container">
-        <h2 class="section__title" id="review-title">Оставить отзыв</h2>
-
-        <form class="form" id="review-form" action="/api/reviews" method="post" novalidate>
-          <div class="form__row">
-            <div class="field">
-              <label class="field__label" for="rv-author">Имя</label>
-              <input class="field__input" id="rv-author" name="author" type="text" required>
-            </div>
-            <div class="field">
-              <label class="field__label" for="rv-car">Автомобиль</label>
-              <input class="field__input" id="rv-car" name="car" type="text" placeholder="Марка, год">
+        <div class="faq reveal">
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false">
+              Нужна ли предварительная запись?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p>
+                Желательна: так вы гарантированно попадёте в удобное время
+                и не ждёте на площадке. Записаться можно по телефону,
+                через форму на сайте или в мессенджере. Без записи тоже
+                примем, если бокс свободен.
+              </p>
             </div>
           </div>
 
-          <div class="field">
-            <label class="field__label" for="rv-rating">Оценка</label>
-            <select class="field__select" id="rv-rating" name="rating">
-              <option value="5">5 — отлично</option>
-              <option value="4">4 — хорошо</option>
-              <option value="3">3 — нормально</option>
-              <option value="2">2 — плохо</option>
-              <option value="1">1 — очень плохо</option>
-            </select>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false">
+              Сколько стоит диагностика?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p>
+                Компьютерная диагностика — 1 500 ₽. Если вы решаете
+                делать ремонт у нас, эта сумма входит в счёт работ.
+                Если нет — платите только за проверку, без доплат
+                «за выводы».
+              </p>
+            </div>
           </div>
 
-          <div class="field">
-            <label class="field__label" for="rv-text">Отзыв</label>
-            <textarea class="field__textarea" id="rv-text" name="text" rows="4" required></textarea>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false">
+              Даёте ли вы гарантию на работу?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p>
+                Да. На большинство работ — 12 месяцев, на ремонт двигателя —
+                до 24 месяцев или 40 000 км. Гарантийный талон
+                с перечнем работ выдаём сразу после оплаты.
+              </p>
+            </div>
           </div>
 
-          <p class="form__status" id="review-status" role="status" aria-live="polite"></p>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false">
+              Можно ли принести свои запчасти?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p>
+                Можно. В этом случае гарантия распространяется только
+                на работы, а не на установленные детали. Если деталь
+                окажется бракованной, мы бесплатно демонтируем её
+                и установим новую — но только по нашей вине в работе.
+              </p>
+            </div>
+          </div>
 
-          <button class="button button--block" type="submit">Отправить отзыв</button>
-        </form>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="false">
+              Работаете ли вы с юридическими лицами?
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq__a">
+              <p>
+                Да: обслуживаем корпоративные автопарки, работаем
+                по договору, выставляем закрывающие документы
+                и можем предоставить отсрочку платежа на 14 дней.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__grid">
-      <section class="site-footer__col">
-        <h2 class="site-footer__title">Надежный мотор</h2>
-        <p class="site-footer__text">
-          Ремонт и обслуживание легковых автомобилей. Работаем с 2011 года,
-          за это время приняли более 8 400 машин.
-        </p>
-      </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="logo" href="index.html">
+            <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
+            </svg>
+            <span class="logo__text">
+              <span class="logo__name">Надежный мотор</span>
+              <span class="logo__sub">Автосервис · Оренбург</span>
+            </span>
+          </a>
+          <p class="footer__about">
+            Ремонт и обслуживание легковых автомобилей. Работаем с 2011 года,
+            за это время приняли более 8 400 машин.
+          </p>
+        </div>
 
-      <nav class="site-footer__col" aria-label="Навигация в подвале">
-        <h2 class="site-footer__title">Навигация</h2>
-        <ul class="site-footer__list">
-          <li><a href="index.html">Главная</a></li>
-          <li><a href="catalog.html">Услуги и цены</a></li>
-          <li><a href="about.html">О нас</a></li>
-          <li><a href="contacts.html">Контакты</a></li>
-        </ul>
-      </nav>
+        <div>
+          <h3 class="footer__title">Навигация</h3>
+          <ul class="footer__list">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="services.html">Услуги и цены</a></li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
 
-      <section class="site-footer__col">
-        <h2 class="site-footer__title">Услуги</h2>
-        <ul class="site-footer__list">
-          <li><a href="catalog.html#diagnostika">Диагностика</a></li>
-          <li><a href="catalog.html#dvigatel">Ремонт двигателя</a></li>
-          <li><a href="catalog.html#hodovaya">Ремонт подвески</a></li>
-          <li><a href="catalog.html#to">Замена масла</a></li>
-        </ul>
-      </section>
+        <div>
+          <h3 class="footer__title">Услуги</h3>
+          <ul class="footer__list">
+            <li><a href="service.html?slug=kompyuternaya-diagnostika">Диагностика</a></li>
+            <li><a href="service.html?slug=remont-dvigatelya">Ремонт двигателя</a></li>
+            <li><a href="service.html?slug=remont-podveski">Ремонт подвески</a></li>
+            <li><a href="service.html?slug=zameny-masla-i-filtrov">Замена масла</a></li>
+          </ul>
+        </div>
 
-      <section class="site-footer__col">
-        <h2 class="site-footer__title">Контакты</h2>
-        <address class="site-footer__contacts">
-          <a href="tel:+73532124590">+7 (3532) 12-45-90</a><br>
-          Оренбург, ул. Академика Сахарова, 55<br>
-          Пн–Сб: 9:00–20:00, Вс: 10:00–18:00<br>
-          <a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a>
-        </address>
-      </section>
-    </div>
+        <div>
+          <h3 class="footer__title">Контакты</h3>
+          <ul class="footer__list footer__contacts">
+            <li><a href="tel:+73532124590">+7 (3532) 12-45-90</a></li>
+            <li>Оренбург, ул. Академика Сахарова, 55</li>
+            <li>Пн–Сб: 9:00–20:00<br>Вс: 10:00–18:00</li>
+            <li><a href="mailto:info@nadezhny-motor.ru">info@nadezhny-motor.ru</a></li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="container site-footer__bottom">
-      <p>© 2026 Автосервис «Надежный мотор»</p>
-      <p><a href="contacts.html">Политика обработки данных</a></p>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> Автосервис «Надежный мотор»</span>
+        <a href="contacts.html">Политика обработки данных</a>
+      </div>
     </div>
   </footer>
 
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/contacts.js"></script>
 </body>
 </html>

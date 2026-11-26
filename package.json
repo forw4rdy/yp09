@@ -2,10 +2,10 @@
   "name": "nadezhny-motor",
   "version": "1.0.0",
   "description": "Сайт автосервиса «Надежный мотор» — Node.js, Express, SQLite, AJAX (Fetch API)",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "start": "node server.js",
+    "dev": "node --watch server.js"
   },
   "keywords": [
     "auto-service",
@@ -15,9 +15,6 @@
     "fetch-api"
   ],
   "license": "MIT",
-  "engines": {
-    "node": ">=22.5.0"
-  },
   "dependencies": {
     "express": "^5.2.1"
   }
