@@ -54,10 +54,17 @@ db.exec(`
     name       TEXT NOT NULL,
     phone      TEXT DEFAULT '',
     email      TEXT DEFAULT '',
+    service_id INTEGER,
     message    TEXT NOT NULL,
-    created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime'))
+    created_at TEXT NOT NULL DEFAULT (datetime('now', 'localtime')),
+    FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE SET NULL
   );
 `);
+
+const messageColumns = db.prepare('PRAGMA table_info(messages)').all();
+if (!messageColumns.some((col) => col.name === 'service_id')) {
+  db.exec('ALTER TABLE messages ADD COLUMN service_id INTEGER');
+}
 
 const SEED_SERVICES = [
   {

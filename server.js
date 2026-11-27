@@ -11,8 +11,6 @@ const PUBLIC_DIR = path.join(__dirname, 'public');
 app.use(express.json());
 app.use(express.static(PUBLIC_DIR, { index: 'index.html', etag: true }));
 
-/* ---------- helpers ---------- */
-
 function isBlank(v) {
   return typeof v !== 'string' || v.trim().length === 0;
 }
@@ -30,8 +28,6 @@ function sendError(res, status, message) {
 function sendOk(res, data) {
   res.json(Object.assign({ ok: true }, data || {}));
 }
-
-/* ---------- API: услуги ---------- */
 
 app.get('/api/services', (req, res) => {
   const category = typeof req.query.category === 'string' ? req.query.category.trim() : '';
@@ -79,8 +75,6 @@ app.get('/api/services/:slug', (req, res) => {
   sendOk(res, { service: Object.assign({}, row, { includes }), related });
 });
 
-/* ---------- API: отзывы ---------- */
-
 app.get('/api/reviews', (req, res) => {
   const limit = Math.min(parseInt(req.query.limit, 10) || 6, 50);
   const rows = db
@@ -117,8 +111,6 @@ app.post('/api/reviews', (req, res) => {
   sendOk(res, { review: row });
 });
 
-/* ---------- API: запись на ремонт ---------- */
-
 app.post('/api/bookings', (req, res) => {
   const body = req.body || {};
   const name = isBlank(body.name) ? '' : String(body.name).trim();
@@ -143,14 +135,13 @@ app.post('/api/bookings', (req, res) => {
   sendOk(res, { message: 'Заявка принята — перезвоним в течение 15 минут' });
 });
 
-/* ---------- API: форма контактов ---------- */
-
 app.post('/api/messages', (req, res) => {
   const body = req.body || {};
   const name = isBlank(body.name) ? '' : String(body.name).trim();
   const phone = isBlank(body.phone) ? '' : String(body.phone).trim();
   const email = isBlank(body.email) ? '' : String(body.email).trim().slice(0, 120);
   const message = isBlank(body.message) ? '' : String(body.message).trim();
+  const serviceId = parseInt(body.service_id, 10);
 
   if (name.length < 2 || name.length > 60) {
     return sendError(res, 400, 'Укажите имя (от 2 до 60 символов)');
@@ -165,13 +156,19 @@ app.post('/api/messages', (req, res) => {
     return sendError(res, 400, 'Проверьте номер телефона');
   }
 
-  db.prepare('INSERT INTO messages (name, phone, email, message) VALUES (?, ?, ?, ?)')
-    .run(name, phone, email, message);
+  const service = Number.isInteger(serviceId)
+    ? db.prepare('SELECT id FROM services WHERE id = ?').get(serviceId)
+    : null;
+
+  if (body.service_id && !service) {
+    return sendError(res, 400, 'Выберите услугу из списка');
+  }
+
+  db.prepare('INSERT INTO messages (name, phone, email, service_id, message) VALUES (?, ?, ?, ?, ?)')
+    .run(name, phone, email, service ? service.id : null, message);
 
   sendOk(res, { message: 'Сообщение отправлено, ответим в рабочее время' });
 });
-
-/* ---------- страницы ---------- */
 
 const PAGES = [
   ['/', 'index.html'],
@@ -187,8 +184,6 @@ for (const [route, file] of PAGES) {
 app.get('/services/:slug', (req, res) => {
   res.sendFile(path.join(PUBLIC_DIR, 'service.html'));
 });
-
-/* ---------- 404 и ошибки ---------- */
 
 app.use((req, res) => {
   res.status(404).sendFile(path.join(PUBLIC_DIR, '404.html'));

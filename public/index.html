@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +7,17 @@
   <meta name="description" content="Автосервис «Надежный мотор»: компьютерная диагностика, ремонт двигателя, подвески и электрики. Гарантия до 24 месяцев, честные цены, запись онлайн.">
   <meta name="theme-color" content="#f2efe7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101a17'/%3E%3Cpath d='M9 22V10l7 8 7-8v12' stroke='%23c9ef4b' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
-  <link rel="preload" href="fonts/Manrope-800-cyr.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/Manrope-400-cyr.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bento.css">
-  <script>
-    document.documentElement.classList.add('js');
-    setTimeout(function () {
-      if (!window.NM_REVEALED) document.documentElement.classList.remove('js');
-    }, 2500);
-  </script>
+  <link rel="preload" href="/fonts/Manrope-800-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Manrope-400-cyr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/bento.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
   <header class="header" id="header">
     <div class="container header__inner">
-      <a class="logo" href="index.html" aria-label="Надежный мотор — на главную">
+      <a class="logo" href="/" aria-label="Надежный мотор — на главную">
         <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
         </svg>
@@ -33,15 +28,15 @@
       </a>
 
       <nav class="nav" aria-label="Основная навигация">
-        <a class="nav__link" href="index.html" data-nav="index.html">Главная</a>
-        <a class="nav__link" href="services.html" data-nav="services.html">Услуги</a>
-        <a class="nav__link" href="about.html" data-nav="about.html">О нас</a>
-        <a class="nav__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
+        <a class="nav__link" href="/" data-nav="/">Главная</a>
+        <a class="nav__link" href="/services" data-nav="/services">Услуги</a>
+        <a class="nav__link" href="/about" data-nav="/about">О нас</a>
+        <a class="nav__link" href="/contacts" data-nav="/contacts">Контакты</a>
       </nav>
 
       <div class="header__actions">
         <a class="header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
-        <a class="btn" href="contacts.html#zapis">Записаться</a>
+        <a class="btn" href="/contacts#zapis">Записаться</a>
         <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -50,13 +45,13 @@
   </header>
 
   <div class="mobile-menu" id="mobile-menu">
-    <a class="mobile-menu__link" href="index.html" data-nav="index.html">Главная</a>
-    <a class="mobile-menu__link" href="services.html" data-nav="services.html">Услуги</a>
-    <a class="mobile-menu__link" href="about.html" data-nav="about.html">О нас</a>
-    <a class="mobile-menu__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
+    <a class="mobile-menu__link" href="/" data-nav="/">Главная</a>
+    <a class="mobile-menu__link" href="/services" data-nav="/services">Услуги</a>
+    <a class="mobile-menu__link" href="/about" data-nav="/about">О нас</a>
+    <a class="mobile-menu__link" href="/contacts" data-nav="/contacts">Контакты</a>
     <div class="mobile-menu__foot">
       <a class="mobile-menu__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
-      <a class="btn btn--block" href="contacts.html#zapis">Записаться на ремонт</a>
+      <a class="btn btn--block" href="/contacts#zapis">Записаться на ремонт</a>
     </div>
   </div>
 
@@ -75,11 +70,11 @@
             </p>
 
             <div class="hero__actions">
-              <a class="btn" href="contacts.html#zapis">
+              <a class="btn" href="/contacts#zapis">
                 Записаться на диагностику
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
               </a>
-              <a class="btn btn--ghost" href="services.html">Услуги и цены</a>
+              <a class="btn btn--ghost" href="/services">Услуги и цены</a>
             </div>
 
             <div class="hero__proof">
@@ -89,7 +84,7 @@
           </article>
 
           <figure class="tile tile--photo tilt">
-            <img src="img/hero.jpg" alt="Ремонтная зона автосервиса «Надежный мотор»" width="1280" height="854" fetchpriority="high">
+            <img src="/img/hero.jpg" alt="Ремонтная зона автосервиса «Надежный мотор»" width="1280" height="854" fetchpriority="high">
             <span class="photo__badge"><b>12</b> мес гарантии</span>
             <figcaption class="photo__cap">
               <b>Бокс №2 — зона ремонта</b>
@@ -98,21 +93,21 @@
           </figure>
 
           <div class="tile tile--stat is-dark reveal" style="--i:1">
-            <span class="stat__num"><span class="count" data-count="8400">8 400</span><sup>+</sup></span>
+            <span class="stat__num"><span class="count" data-count="8400">0</span><sup>+</sup></span>
             <span class="stat__label">автомобилей принято с 2011 года</span>
           </div>
 
           <div class="tile tile--stat is-accent reveal" style="--i:2">
-            <span class="stat__num"><span class="count" data-count="24">24</span><sup>мес</sup></span>
+            <span class="stat__num"><span class="count" data-count="24">0</span><sup>мес</sup></span>
             <span class="stat__label">гарантия на двигатель и работы</span>
           </div>
 
           <div class="tile tile--stat reveal" style="--i:3">
-            <span class="stat__num"><span class="count" data-count="4">4</span></span>
+            <span class="stat__num"><span class="count" data-count="4">0</span></span>
             <span class="stat__label">ремонтных бокса на одном адресе</span>
           </div>
 
-          <a class="tile tile--mini reveal" style="--i:4" href="contacts.html#zapis">
+          <a class="tile tile--mini reveal" style="--i:4" href="/contacts#zapis">
             <span>Есть свободные окна на этой неделе — подберём время за 15 минут</span>
             <span class="mini__arrow" aria-hidden="true">↗</span>
           </a>
@@ -127,104 +122,16 @@
           <div class="section-head__left">
             <h2 class="h-lg">Что мы делаем</h2>
           </div>
-          <a class="link-arrow" href="services.html">
+          <a class="link-arrow" href="/services">
             Все услуги и цены
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
           </a>
         </div>
 
         <div class="bento bento--services" id="home-services">
-          <a class="svc-tile svc-tile--feature reveal" style="--i:0" href="service.html?slug=kompyuternaya-diagnostika">
-            <div class="svc-tile__top">
-              <span class="svc-tile__cat">ТО и диагностика</span>
-              <span class="svc-tile__num">01</span>
-            </div>
-            <img class="svc-tile__bg" src="img/diagnostics.jpg" alt="Компьютерная диагностика" width="1280" height="854" loading="lazy">
-            <h3 class="svc-tile__title">Компьютерная диагностика</h3>
-            <p class="svc-tile__text">Считываем ошибки всех блоков, проверяем датчики и показываем отчёт до начала работ.</p>
-            <div class="svc-tile__foot">
-              <span class="svc-tile__price">от 1 500 ₽</span>
-              <span class="svc-tile__time">40–60 минут</span>
-              <span class="svc-tile__go" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="svc-tile reveal" style="--i:1" href="service.html?slug=zameny-masla-i-filtrov">
-            <div class="svc-tile__top">
-              <span class="svc-tile__cat">ТО и диагностика</span>
-              <span class="svc-tile__num">02</span>
-            </div>
-            <h3 class="svc-tile__title">Замена масла и фильтров</h3>
-            <p class="svc-tile__text">Подбираем масло по вязкости и допускам производителя, меняем фильтры, проверяем утечки.</p>
-            <div class="svc-tile__foot">
-              <span class="svc-tile__price">от 1 200 ₽</span>
-              <span class="svc-tile__time">30–40 минут</span>
-              <span class="svc-tile__go" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="svc-tile reveal" style="--i:2" href="service.html?slug=remont-podveski">
-            <div class="svc-tile__top">
-              <span class="svc-tile__cat">Ходовая часть</span>
-              <span class="svc-tile__num">03</span>
-            </div>
-            <h3 class="svc-tile__title">Ремонт подвески</h3>
-            <p class="svc-tile__text">Стук, увод, «пробой» — найдём изношенный узел на подъёмнике и отремонтируем разом.</p>
-            <div class="svc-tile__foot">
-              <span class="svc-tile__price">от 3 500 ₽</span>
-              <span class="svc-tile__time">от 2 часов</span>
-              <span class="svc-tile__go" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="svc-tile reveal" style="--i:3" href="service.html?slug=zameny-tormoznyh-kolodok">
-            <div class="svc-tile__top">
-              <span class="svc-tile__cat">Ходовая часть</span>
-              <span class="svc-tile__num">04</span>
-            </div>
-            <h3 class="svc-tile__title">Замена тормозных колодок и дисков</h3>
-            <p class="svc-tile__text">Меняем колодки и диски парами, смазываем направляющие, проверяем суппорт и шланги.</p>
-            <div class="svc-tile__foot">
-              <span class="svc-tile__price">от 2 400 ₽</span>
-              <span class="svc-tile__time">1–1,5 часа</span>
-              <span class="svc-tile__go" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="svc-tile reveal" style="--i:4" href="service.html?slug=zameny-remnya-grm">
-            <div class="svc-tile__top">
-              <span class="svc-tile__cat">Двигатель</span>
-              <span class="svc-tile__num">05</span>
-            </div>
-            <h3 class="svc-tile__title">Замена ремня ГРМ</h3>
-            <p class="svc-tile__text">Меняем ремень, ролики и помпу по регламенту, снимаем показания до и после.</p>
-            <div class="svc-tile__foot">
-              <span class="svc-tile__price">от 6 800 ₽</span>
-              <span class="svc-tile__time">4–6 часов</span>
-              <span class="svc-tile__go" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="svc-tile reveal" style="--i:5" href="service.html?slug=remont-dvigatelya">
-            <div class="svc-tile__top">
-              <span class="svc-tile__cat">Двигатель</span>
-              <span class="svc-tile__num">06</span>
-            </div>
-            <h3 class="svc-tile__title">Капитальный ремонт двигателя</h3>
-            <p class="svc-tile__text">Разборка, дефектовка, расточка или гильзовка, сборка с контролем зазоров.</p>
-            <div class="svc-tile__foot">
-              <span class="svc-tile__price">от 48 000 ₽</span>
-              <span class="svc-tile__time">от 5 рабочих дней</span>
-              <span class="svc-tile__go" aria-hidden="true">→</span>
-            </div>
-          </a>
-          <a class="svc-tile svc-tile--all reveal" style="--i:6" href="services.html">
-            <div class="svc-tile__top">
-              <span class="svc-tile__cat">Все услуги</span>
-              <span class="svc-tile__num">12</span>
-            </div>
-            <h3 class="svc-tile__title">Полный прайс-лист</h3>
-            <p class="svc-tile__text">Диагностика, двигатель, ходовая, электрика, трансмиссия и колёса — цены и сроки по каждой работе.</p>
-            <div class="svc-tile__foot">
-              <span class="svc-tile__price">12 услуг</span>
-              <span class="svc-tile__go" aria-hidden="true">→</span>
-            </div>
-          </a>
+          <div class="skeleton"><div class="skeleton__bar skeleton__bar--w60"></div><div class="skeleton__bar skeleton__bar--w90"></div></div>
+          <div class="skeleton"><div class="skeleton__bar skeleton__bar--w60"></div><div class="skeleton__bar skeleton__bar--w90"></div></div>
+          <div class="skeleton"><div class="skeleton__bar skeleton__bar--w60"></div><div class="skeleton__bar skeleton__bar--w90"></div></div>
         </div>
       </div>
     </section>
@@ -287,7 +194,7 @@
 
         <div class="bento bento--why">
           <figure class="tile tile--why-photo reveal">
-            <img src="img/mechanic.jpg" alt="Мастер автосервиса за работой" width="1280" height="1920" loading="lazy">
+            <img src="/img/mechanic.jpg" alt="Мастер автосервиса за работой" width="1280" height="1920" loading="lazy">
             <figcaption>Андрей Кузнецов · двигатели, 14 лет</figcaption>
           </figure>
 
@@ -345,42 +252,16 @@
           <div class="section-head__left">
             <h2 class="h-lg">Что говорят клиенты</h2>
           </div>
-          <a class="link-arrow" href="contacts.html">
+          <a class="link-arrow" href="/contacts">
             Оставить отзыв
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
           </a>
         </div>
 
         <div class="bento bento--reviews" id="home-reviews">
-          <article class="tile review-tile reveal" style="--i:0">
-            <div class="review-tile__stars" aria-label="Оценка 5 из 5">★★★★★</div>
-            <p class="review-tile__text">«Делал диагностику двигателя — мастер сразу показал, где подтекает и что реально нужно менять, а не то, что дороже. Сделали за день, счёт как и договаривались.»</p>
-            <div class="review-tile__author">
-              <span class="review-tile__name">Алексей Воронов</span>
-              <span class="review-tile__car">VW Passat B8, 2016</span>
-            </div>
-          </article>
-          <article class="tile review-tile reveal" style="--i:1">
-            <div class="review-tile__stars" aria-label="Оценка 5 из 5">★★★★★</div>
-            <p class="review-tile__text">«Меняла колодки и масло. Отдельно понравилось, что старые детали оставили и объяснили, какой ресурс у них остался. Через месяц заезжала на проверку — бесплатно посмотрели.»</p>
-            <div class="review-tile__author">
-              <span class="review-tile__name">Марина Кузнецова</span>
-              <span class="review-tile__car">Toyota Camry, 2019</span>
-            </div>
-          </article>
-          <article class="tile review-tile reveal" style="--i:2">
-            <div class="review-tile__stars" aria-label="Оценка 5 из 5">★★★★★</div>
-            <p class="review-tile__text">«Ремонт подвески после ям. Согласовали смету письменно, лишнего не навязывали. Стук ушёл, сход-развал сделали сразу. Езжу третий месяц — всё тихо.»</p>
-            <div class="review-tile__author">
-              <span class="review-tile__name">Дмитрий Смирнов</span>
-              <span class="review-tile__car">Skoda Octavia, 2014</span>
-            </div>
-          </article>
-          <div class="tile review-summary reveal" style="--i:3">
-            <span class="review-summary__num">4.9 <small>из 5</small></span>
-            <span class="review-summary__stars" aria-hidden="true">★★★★★</span>
-            <span class="review-summary__label">Средняя оценка по 312 отзывам · 68% клиентов пришли по рекомендации</span>
-          </div>
+          <div class="skeleton"><div class="skeleton__bar skeleton__bar--w40"></div><div class="skeleton__bar skeleton__bar--w90"></div><div class="skeleton__bar skeleton__bar--w60"></div></div>
+          <div class="skeleton"><div class="skeleton__bar skeleton__bar--w40"></div><div class="skeleton__bar skeleton__bar--w90"></div><div class="skeleton__bar skeleton__bar--w60"></div></div>
+          <div class="skeleton"><div class="skeleton__bar skeleton__bar--w40"></div><div class="skeleton__bar skeleton__bar--w90"></div><div class="skeleton__bar skeleton__bar--w60"></div></div>
         </div>
       </div>
     </section>
@@ -446,7 +327,7 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a class="logo" href="index.html">
+          <a class="logo" href="/">
             <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
             </svg>
@@ -464,20 +345,20 @@
         <div>
           <h3 class="footer__title">Навигация</h3>
           <ul class="footer__list">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="services.html">Услуги и цены</a></li>
-            <li><a href="about.html">О нас</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/services">Услуги и цены</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contacts">Контакты</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer__title">Услуги</h3>
           <ul class="footer__list">
-            <li><a href="service.html?slug=kompyuternaya-diagnostika">Диагностика</a></li>
-            <li><a href="service.html?slug=remont-dvigatelya">Ремонт двигателя</a></li>
-            <li><a href="service.html?slug=remont-podveski">Ремонт подвески</a></li>
-            <li><a href="service.html?slug=zameny-masla-i-filtrov">Замена масла</a></li>
+            <li><a href="/services/kompyuternaya-diagnostika">Диагностика</a></li>
+            <li><a href="/services/remont-dvigatelya">Ремонт двигателя</a></li>
+            <li><a href="/services/remont-podveski">Ремонт подвески</a></li>
+            <li><a href="/services/zameny-masla-i-filtrov">Замена масла</a></li>
           </ul>
         </div>
 
@@ -494,14 +375,13 @@
 
       <div class="footer__bottom">
         <span>© <span data-year>2026</span> Автосервис «Надежный мотор»</span>
-        <a href="contacts.html">Политика обработки данных</a>
+        <a href="/contacts">Политика обработки данных</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/motion.js"></script>
-  <script src="js/home.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/home.js"></script>
 </body>
 </html>

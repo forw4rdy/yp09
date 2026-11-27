@@ -1780,3 +1780,234 @@ section[id] {
     opacity: 1;
   }
 }
+
+@media (max-width: 1200px) {
+  .header__phone {
+    display: none;
+  }
+
+  .header__actions {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .tile--hero {
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+
+  .tile--photo {
+    grid-column: span 12;
+    grid-row: span 1;
+    min-height: 380px;
+  }
+
+  .tile--stat,
+  .tile--mini {
+    grid-column: span 3;
+  }
+
+  .svc-tile,
+  .svc-tile--feature {
+    grid-column: span 6;
+  }
+
+  .svc-tile--feature {
+    grid-row: span 1;
+    min-height: 300px;
+  }
+
+  .svc-tile:nth-child(2) {
+    grid-column: span 6;
+  }
+
+  .svc-tile:nth-child(6),
+  .svc-tile--all {
+    grid-column: span 6;
+  }
+
+  .bento .skeleton:first-child,
+  .bento .skeleton:nth-child(2),
+  .bento .skeleton:nth-child(3),
+  .bento .skeleton {
+    grid-column: span 6;
+  }
+
+  .bento--steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tile--why-photo {
+    grid-column: span 12;
+    grid-row: span 1;
+    min-height: 320px;
+  }
+
+  .perk-tile:nth-of-type(1),
+  .perk-tile:nth-of-type(2),
+  .perk-tile:nth-of-type(3),
+  .perk-tile:nth-of-type(4) {
+    grid-column: span 6;
+  }
+
+  .review-tile,
+  .review-summary {
+    grid-column: span 6;
+  }
+
+  .tile--cta-text,
+  .tile--form {
+    grid-column: span 12;
+  }
+
+  .svc-card {
+    grid-column: span 6;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --gutter: 20px;
+    --header-h: 84px;
+    --radius: 22px;
+  }
+
+  .header__inner {
+    height: 60px;
+  }
+
+  .nav,
+  .header__phone,
+  .header .btn {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .tile--stat,
+  .tile--mini {
+    grid-column: span 6;
+  }
+
+  .tile--hero {
+    padding: 24px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats__item,
+  .stats__item:not(:first-child) {
+    padding: 20px;
+  }
+
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  .team {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .svc-detail,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .related {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .tile--stat,
+  .tile--mini,
+  .svc-tile,
+  .svc-tile--feature,
+  .svc-tile:nth-child(2),
+  .svc-tile:nth-child(6),
+  .svc-tile--all,
+  .review-tile,
+  .review-summary,
+  .perk-tile:nth-of-type(1),
+  .perk-tile:nth-of-type(2),
+  .perk-tile:nth-of-type(3),
+  .perk-tile:nth-of-type(4),
+  .svc-card {
+    grid-column: span 12;
+  }
+
+  .bento--steps {
+    grid-template-columns: 1fr;
+  }
+
+  .step-tile {
+    min-height: 0;
+  }
+
+  .tile--photo {
+    min-height: 320px;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento .skeleton:first-child,
+  .bento .skeleton:nth-child(2),
+  .bento .skeleton:nth-child(3),
+  .bento .skeleton {
+    grid-column: span 12;
+  }
+
+  .contact-items {
+    padding: 4px 18px;
+  }
+}
+
+@media (hover: none) {
+  .tile--spot::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .marquee__track {
+    animation: none;
+  }
+
+  .motion body {
+    animation: none;
+  }
+
+  .svc-tile,
+  .review-tile {
+    animation: none;
+  }
+
+  .hero__em {
+    background-size: 100% 0.22em;
+    animation: none;
+  }
+}

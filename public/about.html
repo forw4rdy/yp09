@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +7,15 @@
   <meta name="description" content="Автосервис «Надежный мотор» работает в Оренбурге с 2011 года: команда мастеров, оборудование, принципы работы и гарантии.">
   <meta name="theme-color" content="#f2efe7">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101a17'/%3E%3Cpath d='M9 22V10l7 8 7-8v12' stroke='%23c9ef4b' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/bento.css">
-  <script>
-    document.documentElement.classList.add('js');
-    setTimeout(function () {
-      if (!window.NM_REVEALED) document.documentElement.classList.remove('js');
-    }, 2500);
-  </script>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/bento.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
   <header class="header" id="header">
     <div class="container header__inner">
-      <a class="logo" href="index.html" aria-label="Надежный мотор — на главную">
+      <a class="logo" href="/" aria-label="Надежный мотор — на главную">
         <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
         </svg>
@@ -31,15 +26,15 @@
       </a>
 
       <nav class="nav" aria-label="Основная навигация">
-        <a class="nav__link" href="index.html" data-nav="index.html">Главная</a>
-        <a class="nav__link" href="services.html" data-nav="services.html">Услуги</a>
-        <a class="nav__link" href="about.html" data-nav="about.html">О нас</a>
-        <a class="nav__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
+        <a class="nav__link" href="/" data-nav="/">Главная</a>
+        <a class="nav__link" href="/services" data-nav="/services">Услуги</a>
+        <a class="nav__link" href="/about" data-nav="/about">О нас</a>
+        <a class="nav__link" href="/contacts" data-nav="/contacts">Контакты</a>
       </nav>
 
       <div class="header__actions">
         <a class="header__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
-        <a class="btn" href="contacts.html#zapis">Записаться</a>
+        <a class="btn" href="/contacts#zapis">Записаться</a>
         <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -48,13 +43,13 @@
   </header>
 
   <div class="mobile-menu" id="mobile-menu">
-    <a class="mobile-menu__link" href="index.html" data-nav="index.html">Главная</a>
-    <a class="mobile-menu__link" href="services.html" data-nav="services.html">Услуги</a>
-    <a class="mobile-menu__link" href="about.html" data-nav="about.html">О нас</a>
-    <a class="mobile-menu__link" href="contacts.html" data-nav="contacts.html">Контакты</a>
+    <a class="mobile-menu__link" href="/" data-nav="/">Главная</a>
+    <a class="mobile-menu__link" href="/services" data-nav="/services">Услуги</a>
+    <a class="mobile-menu__link" href="/about" data-nav="/about">О нас</a>
+    <a class="mobile-menu__link" href="/contacts" data-nav="/contacts">Контакты</a>
     <div class="mobile-menu__foot">
       <a class="mobile-menu__phone" href="tel:+73532124590">+7 (3532) 12-45-90</a>
-      <a class="btn btn--block" href="contacts.html#zapis">Записаться на ремонт</a>
+      <a class="btn btn--block" href="/contacts#zapis">Записаться на ремонт</a>
     </div>
   </div>
 
@@ -63,7 +58,7 @@
     <section class="page-head">
       <div class="container">
         <nav class="breadcrumb" aria-label="Хлебные крошки">
-          <a href="index.html">Главная</a>
+          <a href="/">Главная</a>
           <span class="breadcrumb__sep">/</span>
           <span>О нас</span>
         </nav>
@@ -108,7 +103,7 @@
           </div>
 
           <figure class="reveal" style="--delay:.1s">
-            <img class="split__img" src="img/lift.jpg" alt="Рабочая зона сервиса: подъёмник и автомобили" width="1280" height="1920" loading="lazy" style="aspect-ratio:4/5;">
+            <img class="split__img" src="/img/lift.jpg" alt="Рабочая зона сервиса: подъёмник и автомобили" width="1280" height="1920" loading="lazy" style="aspect-ratio:4/5;">
             <figcaption class="hero__caption">
               <span>Бокс №1 — зона ТО</span>
               <span>Подъёмник 4 т</span>
@@ -243,7 +238,7 @@
               Вложения в технику — это точность диагностики. Ниже то,
               на чём ежедневно работают наши мастера.
             </p>
-            <a class="btn" href="contacts.html#zapis">
+            <a class="btn" href="/contacts#zapis">
               Записаться на диагностику
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
             </a>
@@ -274,7 +269,7 @@
           Если нет — платите только за работу по проверке.
         </p>
         <div class="reveal" style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
-          <a class="btn btn--light" href="contacts.html#zapis">
+          <a class="btn btn--light" href="/contacts#zapis">
             Оставить заявку
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6"/></svg>
           </a>
@@ -289,7 +284,7 @@
     <div class="container">
       <div class="footer__grid">
         <div>
-          <a class="logo" href="index.html">
+          <a class="logo" href="/">
             <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
               <path d="M4 26V6l12 14L28 6v20" stroke="currentColor" stroke-width="3"/>
             </svg>
@@ -307,20 +302,20 @@
         <div>
           <h3 class="footer__title">Навигация</h3>
           <ul class="footer__list">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="services.html">Услуги и цены</a></li>
-            <li><a href="about.html">О нас</a></li>
-            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/services">Услуги и цены</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contacts">Контакты</a></li>
           </ul>
         </div>
 
         <div>
           <h3 class="footer__title">Услуги</h3>
           <ul class="footer__list">
-            <li><a href="service.html?slug=kompyuternaya-diagnostika">Диагностика</a></li>
-            <li><a href="service.html?slug=remont-dvigatelya">Ремонт двигателя</a></li>
-            <li><a href="service.html?slug=remont-podveski">Ремонт подвески</a></li>
-            <li><a href="service.html?slug=zameny-masla-i-filtrov">Замена масла</a></li>
+            <li><a href="/services/kompyuternaya-diagnostika">Диагностика</a></li>
+            <li><a href="/services/remont-dvigatelya">Ремонт двигателя</a></li>
+            <li><a href="/services/remont-podveski">Ремонт подвески</a></li>
+            <li><a href="/services/zameny-masla-i-filtrov">Замена масла</a></li>
           </ul>
         </div>
 
@@ -337,12 +332,12 @@
 
       <div class="footer__bottom">
         <span>© <span data-year>2026</span> Автосервис «Надежный мотор»</span>
-        <a href="contacts.html">Политика обработки данных</a>
+        <a href="/contacts">Политика обработки данных</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/motion.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/motion.js"></script>
 </body>
 </html>

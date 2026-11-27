@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>shot</title>
+  <style>
+    html, body { margin: 0; background: #000; }
+    iframe { display: block; width: 1440px; height: 1000px; border: 0; }
+  </style>
+</head>
+<body>
+  <iframe id="f" src="/"></iframe>
+  <script>
+    const f = document.getElementById('f');
+    f.addEventListener('load', function () {
+      setTimeout(function () {
+        const w = f.contentWindow;
+        w.scrollTo(0, w.document.documentElement.scrollHeight - w.innerHeight);
+      }, 500);
+    });
+  </script>
+</body>
+</html>
